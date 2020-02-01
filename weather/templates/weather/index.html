@@ -26,11 +26,21 @@
                       <input type="submit" name="send" value="Didcover" class="mt-2 btn btn-danger">
                   </form>
               </div>
-              <div class="col-4 offset-1">
+              <div class="col-4 offset-2">
                   <h1>Information</h1>
-                  <div class="alert alert-danger">
-                      The weather in Moscow
+                  {% for info in all_info %}
+                  <div class="alert alert-info">
+                      <div class="row">
+                          <div class="col-9">
+                              <b>Town: </b>{{ info.city }}<br>
+                              <b>Temperature: </b>{{ info.temp }}<sup>0</sup>
+                          </div>
+                          <div class="col-2 offset-1">
+                              <img src="https://openweathermap.org/img/w/{{ info.icon }}.png" alt="Weather photo">
+                          </div>
+                      </div>
                   </div>
+                  {% endfor %}
               </div>
           </div>
       </div>
